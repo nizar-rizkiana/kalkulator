@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>web kalkulator</title>
+        <link rel="stylesheet" type="text/css" href="assets/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <fieldset>
+            <legend style="font-weight: bold;">PROGRAM KALKULATOR</legend>
+            <table>
+                <tr>
+                    <th align="left">Nama</th>
+                    <td>&nbsp;:&nbsp;</td>
+                    <td>Moh. Nizar Rizkiana</td>
+                </tr>
+                <tr>
+                    <th align="left">NIM</th>
+                    <td>&nbsp;:&nbsp;</td>
+                    <td>511190046</td>
+                </tr>
+                <tr>
+                    <th align="left">Prodi</th>
+                    <td>&nbsp;:&nbsp;</td>
+                    <td>Interaksi Manusia Dan Komputer</td>
+                </tr>
+            </table>
+        </fieldset>
+        <div class="flex-container-column card">
+            <div class="display neumorphism">
+                <h1 id="shadowNumber"></h1>
+                <!-- <input type="text" id="displayNumber" autofocus="true"> -->
+                <h1 id="displayNumber">0</h1>
+            </div>
+            
+            <div class="flex-container-row">
+                <div class="button neumorphism"><span>7</span></div>
+                <div class="button neumorphism">8</div>
+                <div class="button neumorphism">9</div>
+                <div class="button operator neumorphism">x</div>
+            </div>
+            <div class="flex-container-row">
+                <div class="button neumorphism">4</div>
+                <div class="button neumorphism">5</div>
+                <div class="button neumorphism">6</div>
+                <div class="button operator neumorphism">-</div>
+            </div>
+            <div class="flex-container-row">
+                <div class="button neumorphism">1</div>
+                <div class="button neumorphism">2</div>
+                <div class="button neumorphism">3</div>
+                <div class="button neumorphism operator">+</div>
+            </div>
+            <div class="flex-container-row">
+                <div class="button neumorphism clear">CE</div>
+                <div class="button neumorphism">0</div>
+                <div class="button neumorphism equals">=</div>
+                <div class="button neumorphism operator">/</div>
+            </div>
+        </div>
+        <div class="history card">
+            <h2>Riwayat Perhitungan</h2>
+            <table id="history">
+                <thead>
+                    <tr>
+                        <th>Angka Pertama</th>
+                        <th>Operator</th>
+                        <th>Angka Kedua</th>
+                        <th>Hasil</th>
+                    </tr>
+                </thead>
+            <tbody id="historyList"></tbody>
+        </table>
+    </div>
+    <script>
+    var shadow_number = document.getElementById('shadowNumber');
+    if (window.innerWidth < 513) {
+    
+    shadow_number.innerHTML = '0000000';
+    }else{
+    shadow_number.innerHTML = '000000000000000000000';
+    }
+    </script>
+    <script src="assets/storage.js"></script>
+    <script src="assets/kalkulator.js"></script>
+</body>
+</html>
