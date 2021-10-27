@@ -43,7 +43,7 @@ function handleOperator(operator) {
        calculator.firstNumber = calculator.displayNumber;
 
    } else {
-       alert('Operator sudah ditetapkan')
+       alert('Anda sudah menetapkan operator ( '+ calculator.operator + ' )')
    }
 }
  
