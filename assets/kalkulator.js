@@ -78,7 +78,7 @@ function handleOperator(operator) {
        // calculator.displayNumber = '';
 
    } else {
-       alert('Anda sudah menetapkan operator ( '+ calculator.operator + ' )')
+       alert('Anda sudah menetapkan operator ( '+ calculator.operator + ' ). Silahkan masukkan angka berikutnya')
    }
 }
  
