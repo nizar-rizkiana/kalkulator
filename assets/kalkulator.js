@@ -1,17 +1,57 @@
 
 const calculator = {
-   displayNumber: '0',
+   displayNumber: '',
    operator: null,
    firstNumber: null,
    waitingForSecondNumber: false
 };
  
 function updateDisplay() {
-   document.querySelector("#displayNumber").innerText = calculator.displayNumber;
+   document.getElementById("displayNumber").focus();
+   if(calculator.displayNumber){
+
+        document.querySelector("#displayNumber").value = calculator.displayNumber;
+    }else{
+
+       document.querySelector("#displayNumber").value = calculator.firstNumber;
+    }
+}
+
+function inputClick(){
+    document.getElementById("displayNumber").focus();
+}
+
+function inputSecondChange(a){
+    if(calculator.firstNumber != null){
+        let lastDigit = a.slice(a.length-1, a.length);
+        if(calculator.displayNumber == calculator.firstNumber){
+            document.getElementById('displayNumber').value = lastDigit;
+            calculator.displayNumber = lastDigit;
+        }else{
+            calculator.displayNumber += lastDigit;
+        }
+    }
+
+}
+
+function inputHapus(h){
+    if(h.length < calculator.displayNumber.length){
+        calculator.displayNumber = h.slice(0, h.length-1);
+    }
+}
+
+function inputChange() {
+    let angka = document.getElementById('displayNumber').value;
+
+   inputSecondChange(angka);
+   inputHapus(angka);
+   if(calculator.firstNumber == null){
+        inputDigit(angka.slice(angka.length-1, angka.length));
+   }
 }
  
 function clearCalculator() {
-   calculator.displayNumber = '0';
+   calculator.displayNumber = '';
    calculator.operator = null;
    calculator.firstNumber = null;
    calculator.waitingForSecondNumber = false;
@@ -21,7 +61,7 @@ function inputDigit(digit) {
    if (calculator.waitingForSecondNumber && calculator.firstNumber === calculator.displayNumber) {
        calculator.displayNumber = digit;
    } else {
-       if (calculator.displayNumber === '0') {
+       if (calculator.displayNumber === '') {
            calculator.displayNumber = digit;
        } else {
            calculator.displayNumber += digit;
@@ -29,18 +69,13 @@ function inputDigit(digit) {
    }
 }
  
-function inverseNumber() {
-   if (calculator.displayNumber === '0') {
-       return;
-   }
-   calculator.displayNumber = calculator.displayNumber * -1;
-}
- 
 function handleOperator(operator) {
    if (!calculator.waitingForSecondNumber) {
        calculator.operator = operator;
        calculator.waitingForSecondNumber = true;
        calculator.firstNumber = calculator.displayNumber;
+       // calculator.firstNumber = document.getElementById("displayNumber").value;
+       // calculator.displayNumber = '';
 
    } else {
        alert('Anda sudah menetapkan operator ( '+ calculator.operator + ' )')
@@ -54,7 +89,8 @@ function performCalculation() {
    }
    let result = 0;
    if (calculator.operator === "+") {
-       result = parseInt(calculator.firstNumber) + parseInt(calculator.displayNumber);
+       // result = parseInt(calculator.firstNumber) + parseInt(calculator.displayNumber);
+       result = parseInt(calculator.firstNumber) + parseInt(document.getElementById("displayNumber").value);
    }
    if(calculator.operator === "-") {
        result = parseInt(calculator.firstNumber) - parseInt(calculator.displayNumber);
@@ -93,12 +129,6 @@ for (let button of buttons) {
            return;
        }
  
-       if (target.classList.contains('negative')) {
-           inverseNumber();
-           updateDisplay();
-           return;
-       }
- 
        if (target.classList.contains('equals')) {
            performCalculation();
            updateDisplay();
@@ -112,7 +142,7 @@ for (let button of buttons) {
            return;
        }
        inputDigit(target.innerText);
-       updateDisplay()
+       updateDisplay();
    });
 }
 

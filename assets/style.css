@@ -11,9 +11,20 @@ body{
 }
 #displayNumber{
    font-family: 'digital';
-   /*font-size: 2em;
+   font-size: 2em;
    background-color: transparent;
-   margin: 24px 0px;*/
+   margin: 42px 0px;
+   border-width: 0;
+   border-style: none;
+   text-align: right;
+}
+input:focus-visible{
+   outline: 0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+   -webkit-appearance: none;
+   margin: 0;
 }
 #shadowNumber{
    font-family: 'digital';

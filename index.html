@@ -27,10 +27,10 @@
             </table>
         </fieldset>
         <div class="flex-container-column card">
-            <div class="display neumorphism">
+            <div class="display neumorphism" onclick="inputClick()">
                 <h1 id="shadowNumber"></h1>
-                <!-- <input type="text" id="displayNumber" autofocus="true"> -->
-                <h1 id="displayNumber">0</h1>
+                <input type="number" id="displayNumber" autofocus="true" value="" oninput="inputChange()">
+                <!-- <h1 id="displayNumber">0</h1> -->
             </div>
             
             <div class="flex-container-row">
