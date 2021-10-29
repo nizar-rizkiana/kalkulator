@@ -17,6 +17,7 @@ body{
    border-width: 0;
    border-style: none;
    text-align: right;
+   width: 100%;
 }
 input:focus-visible{
    outline: 0;
@@ -69,8 +70,6 @@ input::-webkit-inner-spin-button{
    text-align: center;
    padding: 40px;
    margin: 16px;
-   /*border: 1px solid black;*/
-   /*background: -webkit-linear-gradient(top, #d2d2d2, #ddd);*/
    cursor: pointer;
 }
 .button:hover {
@@ -81,9 +80,6 @@ input::-webkit-inner-spin-button{
    inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
    margin-bottom: 12px;
 }
-/*.double {
-   flex-basis: 50%;
-}*/
 
 .display {
    color: rgba(0, 0, 0, 1.0);
@@ -145,7 +141,6 @@ table#history tr:nth-child(even) {
    background-color: #d2d2d2;
 }
 
-/*perubahan*/
 
 @media screen and (max-width: 513px) {
    .button {
@@ -157,7 +152,8 @@ table#history tr:nth-child(even) {
       margin: 14px;
    }
    #shadowNumber{
-      margin: 14px;
+      margin: 14px 9px;
+      padding: 0;
    }
    .history {
        width: 100%;
