@@ -7,7 +7,7 @@ const calculator = {
 };
  
 function updateDisplay() {
-   document.getElementById("displayNumber").focus();
+   // document.getElementById("displayNumber").focus();
    if(calculator.displayNumber){
 
         document.querySelector("#displayNumber").value = calculator.displayNumber;
